@@ -1,7 +1,12 @@
 import './App.css';
+import Game from './Game';
 
 function App() {
-  return <div>Yo</div>;
+  return (
+    <section>
+      <Game />
+    </section>
+  );
 }
 
 export default App;
