@@ -15,7 +15,9 @@ export default function Game() {
     //run new game function
   };
 
-  const opponentPick = () => {};
+  const opponentPick = (hand) => {
+    console.log(hand);
+  };
 
   const handlePickEvent = (e, hand) => {
     setState({ ...state, [hand]: [e.target.value] });
@@ -26,8 +28,31 @@ export default function Game() {
   };
 
   return (
-    <div>
-      <img src={scissors.image} className="cards" alt="Cards" />
+    <div className="game_container">
+      <div>
+        <img
+          src={scissors.image}
+          className="cards"
+          alt="Cards"
+          onClick={() => opponentPick('scissors')}
+        />
+      </div>
+      <div>
+        <img
+          src={rock.image}
+          className="cards"
+          alt="Cards"
+          onClick={() => opponentPick('rock')}
+        />
+      </div>
+      <div>
+        <img
+          src={paper.image}
+          className="cards"
+          alt="Cards"
+          onClick={() => opponentPick('paper')}
+        />
+      </div>
     </div>
   );
 }
