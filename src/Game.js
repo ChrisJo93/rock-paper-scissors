@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import { rock, paper, scissors } from './assets/data';
+import './game.css';
 
 export default function Game() {
   const [state, setState] = useState({
     player: '',
     opponent: '',
-    won: false,
-    newGame: false,
     playerScore: 0,
     opponentScore: 0,
   });
@@ -15,17 +15,19 @@ export default function Game() {
     //run new game function
   };
 
-  const opponentPick = () => {
-    //Pick random hand at beginning of turn and store to state.
-  };
+  const opponentPick = () => {};
 
-  const handlePickEvent = () => {
-    //   On selection, store to state and run findWinner function to compare hands.
+  const handlePickEvent = (e, hand) => {
+    setState({ ...state, [hand]: [e.target.value] });
   };
 
   const newGame = () => {
-    //   reset game state and add to score
+    setState({ ...state, player: '', opponent: '' });
   };
 
-  return null;
+  return (
+    <div>
+      <img src={scissors.image} className="cards" alt="Cards" />
+    </div>
+  );
 }
