@@ -4,7 +4,7 @@ import './game.css';
 
 export default function Game() {
   const [state, setState] = useState({
-    player: '',
+    player: 'scissors',
     opponent: '',
     playerScore: 0,
     opponentScore: 0,
@@ -12,6 +12,7 @@ export default function Game() {
 
   useEffect(() => {
     console.log(state.opponent);
+    findWinner();
   });
 
   const findWinner = () => {
@@ -61,7 +62,7 @@ export default function Game() {
         newGame();
         break;
       default:
-        return null;
+        break;
     }
   };
 
@@ -79,7 +80,7 @@ export default function Game() {
   };
 
   const newGame = () => {
-    setState({ ...state, player: '', opponent: '' });
+    setState({ ...state, opponent: '' });
   };
 
   return (
